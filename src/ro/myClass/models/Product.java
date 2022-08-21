@@ -7,7 +7,7 @@ public class Products {
     private String image;
     private int stock;
 
-    public Products(String name,float price,String image,int stock){
+    public Products(int id,String name,float price,String image,int stock){
         this.id = id;
         this.name = name;
         this.price = price;
@@ -24,6 +24,7 @@ public class Products {
 
     }
 
+
     public String showProduct(){
         String text= "";
         text += "ID:" + id;
@@ -33,6 +34,23 @@ public class Products {
         text += "\n Stock: " + stock;
         text += "\n====================================\n";
         return text;
+    }
+
+    @Override
+    public String toString(){
+        String text= "";
+        text += "ID:" + id;
+        text += "\n Name product: " + name;
+        text += "\n Price: " + price;
+        text += "\n Image: " + image;
+        text += "\n Stock: " + stock;
+        return text;
+    }
+    @Override
+    public boolean equals(Object obj){
+        Products products = (Products) obj;
+
+        return  products.getId()==this.id;
     }
 
     public void setId(int id){
