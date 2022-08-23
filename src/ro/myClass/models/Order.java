@@ -1,16 +1,16 @@
 package ro.myClass.models;
 
-public class Orders {
+public class Order {
     private int customerID;
     private int ammount;
     private String orderDate;
 
-    public Orders(int customerID,int ammount,String orderDate){
+    public Order(int customerID, int ammount, String orderDate){
       this.customerID = customerID;
         this.orderDate = orderDate;
         this.ammount = ammount;
     }
-    public Orders(String text){
+    public Order(String text){
         String[] proprietes = text.split(",");
         this.customerID = Integer.parseInt(proprietes[0]);
         this.orderDate = proprietes[1];
@@ -37,9 +37,13 @@ public class Orders {
 
     @Override
     public boolean equals(Object obj){
-        Orders orders = (Orders) obj;
-        return orders.customerID==this.customerID;
+        Order order = (Order) obj;
+        return order.customerID==this.customerID;
     }
+
+    public String toSave(){
+        return customerID+","+orderDate+","+ammount;
+    }g
 
     public int getCustomerID() {
         return customerID;

@@ -1,20 +1,20 @@
 package ro.myClass.models;
 
-public class Products {
+public class Product {
     private int id;
     private String name;
     private float price;
     private String image;
     private int stock;
 
-    public Products(int id,String name,float price,String image,int stock){
+    public Product(int id, String name, float price, String image, int stock){
         this.id = id;
         this.name = name;
         this.price = price;
         this.image = image;
         this.stock = stock;
     }
-    public Products(String text){
+    public Product(String text){
         String[]  proprietes = text.split(",");
         this.id = Integer.parseInt(proprietes[0]);
         this.name = proprietes[1];
@@ -48,9 +48,14 @@ public class Products {
     }
     @Override
     public boolean equals(Object obj){
-        Products products = (Products) obj;
+        Product product = (Product) obj;
 
-        return  products.getId()==this.id;
+        return  product.getId()==this.id;
+    }
+
+
+    public String toSave(){
+        return id+","+name+","+price+","+image+","+stock;
     }
 
     public void setId(int id){

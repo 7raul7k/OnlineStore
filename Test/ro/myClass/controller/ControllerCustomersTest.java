@@ -15,10 +15,12 @@ class ControllerCustomersTest {
 public void test1(){
     ControllerUser controllerUser = new ControllerUser();
 
-    Customer customer = new Customer(231,"emanuel","olariu","olariuemanuel@gmail.com","olariuemanuel@gmail.com2022",32,1,true);
+    Customer
+            customer = new Customer(231,"emanuel","olariu","olariuemanuel@gmail.com","olariuemanuel@gmail.com2022",32,1,true);
     Administrator admin = new Administrator(32,"Silviu","Alexandru","silviualexandru@gmail.com","silviualexandru@gmail.com2022","marketing");
 
     int size = controllerUser.size();
+
     controllerUser.add(customer);
     controllerUser.add(admin);
 

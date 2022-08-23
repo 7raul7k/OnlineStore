@@ -5,25 +5,28 @@ public class User {
     private String firstName;
     private String lastName;
     private String email;
-    private int age;
+
+    private String password;
+
     private String tip;
 
-    public User(int id,String firstName,String lastName,String email,int age,String tip){
+    public User(int id,String firstName,String lastName,String email,String password,String tip){
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
-        this.age = age;
+        this.password = password;
         this.tip = tip;
     }
     public User(String text){
         String[] proprietes = text.split(",");
-        this.id = Integer.parseInt(proprietes[0]);
-        this.firstName = proprietes[1];
-        this.lastName = proprietes[2];
-        this.email = proprietes[3];
-        this.age = Integer.parseInt(proprietes[4]);
-        this.tip = proprietes[5];
+        this.tip = proprietes[0];
+        this.id = Integer.parseInt(proprietes[1]);
+        this.firstName = proprietes[2];
+        this.lastName = proprietes[3];
+        this.email = proprietes[4];
+        this.password = proprietes[5];
+
     }
     public String showUser(){
         String text = "";
@@ -31,10 +34,25 @@ public class User {
         text += "\nFirst Name: " + firstName;
         text += "\nLast Name: " + lastName;
         text += "\nEmail: " + email;
-        text += "\nAge: " + age;
         text +="\nTip: " + tip;
-        text +="\n==================================\n";
         return text;
+    }
+
+    @Override
+    public String toString(){
+        String text = "";
+        text += "Id: " + id;
+        text += "\nFirst Name: " + firstName;
+        text += "\nLast Name: " + lastName;
+        text += "\nEmail: " + email;
+        text +="\nTip: " + tip;
+        return text;
+    }
+
+    @Override
+    public boolean equals(Object obj){
+        User user = (User) obj;
+        return user.id==this.id;
     }
 
     public int getId() {
@@ -69,12 +87,12 @@ public class User {
         this.email = email;
     }
 
-    public int getAge() {
-        return age;
+    public String getPassword() {
+        return password;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getTip() {
@@ -83,5 +101,9 @@ public class User {
 
     public void setTip(String tip) {
         this.tip = tip;
+    }
+
+    public String toSave(){
+        return id+","+lastName+","+firstName+","+email+","+password+","+tip;
     }
 }
