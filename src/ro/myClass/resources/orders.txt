@@ -1,6 +1,0 @@
-100,27 septembrie,1000
-101,10 august,1450
-102,9 noiembrie,1200
-103,13 iulie,2400
-104,5 aprilie,3000
-105,19 decembrie,3120

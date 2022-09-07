@@ -20,12 +20,12 @@ public class User {
     }
     public User(String text){
         String[] proprietes = text.split(",");
-        this.tip = proprietes[0];
-        this.id = Integer.parseInt(proprietes[1]);
-        this.firstName = proprietes[2];
-        this.lastName = proprietes[3];
-        this.email = proprietes[4];
-        this.password = proprietes[5];
+        this.id = Integer.parseInt(proprietes[0]);
+        this.firstName = proprietes[1];
+        this.lastName = proprietes[2];
+        this.email = proprietes[3];
+        this.password = proprietes[4];
+        this.tip = proprietes[5];
 
     }
     public String showUser(){

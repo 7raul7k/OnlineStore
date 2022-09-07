@@ -1,26 +1,33 @@
 package ro.myClass.models;
 
 public class OrderDetail {
+
+    private int id;
     private int orderId;
     private int productId;
     private int quantity;
 
-    public OrderDetail(int orderId, int productId, int quantity){
+    public OrderDetail(int id,int orderId, int productId, int quantity){
+        this.id = id;
         this.orderId = orderId;
         this.productId = productId;
         this.quantity = quantity;
     }
     public OrderDetail(String text){
-        String[] proprietes = text.split(",");
-        this.orderId = Integer.parseInt(proprietes[0]);
-        this.productId = Integer.parseInt(proprietes[1]);
-        this.quantity = Integer.parseInt(proprietes[2]);
+        if(text!="") {
+            String[] proprietes = text.split(",");
+            this.id = Integer.parseInt(proprietes[0]);
+            this.orderId = Integer.parseInt(proprietes[1]);
+            this.productId = Integer.parseInt(proprietes[2]);
+            this.quantity = Integer.parseInt(proprietes[3]);
+        }
     }
     public String showOrder(){
         String text ="";
+        text += "Id" + id;
         text += "Order id: " + orderId;
-        text += "Product id: " + productId;
-        text += "Quantity: " + quantity;
+        text += "\nProduct id: " + productId;
+        text += "\nQuantity: " + quantity;
         text += "\n==================================\n";
         return text;
     }
@@ -30,9 +37,10 @@ public class OrderDetail {
     @Override
     public String toString(){
         String text ="";
-        text += "Order id: " + orderId;
-        text += "Product id: " + productId;
-        text += "Quantity: " + quantity;
+        text += "Id" + id;
+        text += "\nOrder id: " + orderId;
+        text += "\nProduct id: " + productId;
+        text += "\nQuantity: " + quantity;
         return text;
 
     }
@@ -45,11 +53,20 @@ public class OrderDetail {
         return orderDetails.orderId==this.orderId;
     }
 
+
     public String toSave(){
-        return orderId+","+productId+","+quantity;
+        return id+","+orderId+","+productId+","+quantity;
     }
     public int getOrderId() {
         return orderId;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public void setOrderId(int orderId) {

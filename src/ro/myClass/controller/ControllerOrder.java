@@ -1,8 +1,10 @@
 package ro.myClass.controller;
 
+import org.junit.jupiter.api.Test;
 import ro.myClass.models.Order;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -26,34 +28,36 @@ public class ControllerOrder {
              e.printStackTrace();
         }
     }
-    public void showOrders(){
+    public String showOrders(){
+        String text = "";
         for(Order m : orders){
-            System.out.println(m.showOrders());
+            text += m;
         }
+        return text;
     }
-    public int findOrderByID(int id){
-        for (int i = 0 ; i<= orders.size();i++){
-            if(orders.get(i).getCustomerID() == id ){
+    public int findOrderByID(int id,int orderID){
+        for (int i = 0 ; i < orders.size() ;i++){
+            if(orders.get(i).getId() == id && orders.get(i).getCustomerID() == orderID  ){
                 return i;
             }
         }
         return -1;
     }
     public void addOrder(Order order){
-        int flag = findOrderByID(order.getCustomerID());
+        int flag = findOrderByID(order.getId(),order.getCustomerID());
         if(flag == -1 ){
             this.orders.add(order);
         }
     }
-    public void removeOrder(int id){
-        int pos = findOrderByID(id);
+    public void removeOrder(int id,int orderId){
+        int pos = findOrderByID(id,orderId);
         if(pos != -1){
             this.orders.remove(pos);
         }
     }
     public String toString(){
         String text = "";
-        for (int i = 0; i <= orders.size();i++){
+        for (int i = 0; i < orders.size();i++){
             text += orders.get(i).toSave() +"\n";
         }
         return text;
@@ -64,11 +68,28 @@ public class ControllerOrder {
         FileWriter fileWriter = new FileWriter(file);
         PrintWriter printWriter = new PrintWriter(fileWriter);
         printWriter.print(this);
-        printWriter.close();
+        printWriter.flush();
+         printWriter.close();
     }catch (Exception e){
          e.printStackTrace();
      }
     }
-
+    public int size(){
+        return orders.size();
+    }
+    public int generateOrderID(){
+        if(this.orders.size()>0){
+            return this.orders.get(orders.size()-1).getCustomerID()+1;
+        }
+        return 1;
+    }
+    public boolean findsavedOrder(int id,int customerID){
+        for (Order m : orders){
+            if(m.getId() == id && m.getCustomerID() == customerID){
+                return true;
+            }
+        }
+        return false;
+    }
 
 }

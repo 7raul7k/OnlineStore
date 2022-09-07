@@ -44,6 +44,7 @@ public class Product {
         text += "\n Price: " + price;
         text += "\n Image: " + image;
         text += "\n Stock: " + stock;
+        text += "\n ================================\n";
         return text;
     }
     @Override

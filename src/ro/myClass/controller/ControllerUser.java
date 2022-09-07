@@ -4,10 +4,7 @@ import ro.myClass.models.Administrator;
 import ro.myClass.models.Customer;
 import ro.myClass.models.User;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.PrintWriter;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -21,12 +18,11 @@ public class ControllerUser {
 
     public void load() {
         try {
-
             File file = new File("C:\\mycode\\JavaBasics\\Mostenirea\\OnlineStore\\src\\ro\\myClass\\resources\\user.txt");
             Scanner scanner = new Scanner(file);
             while (scanner.hasNextLine()) {
                 String text = scanner.nextLine();
-                switch (text.split(",")[0]) {
+                switch (text.split(",")[5]) {
                     case "administrator":
                         this.users.add(new Administrator(text));
                         break;
@@ -40,10 +36,12 @@ public class ControllerUser {
         }
     }
 
-    public void show() {
+    public String show() {
+        String text = "";
         for (User m : users) {
-            System.out.println(m);
+            text += m;
         }
+        return text;
     }
 
     public int size() {
@@ -55,41 +53,81 @@ public class ControllerUser {
 
         if (pos == false) {
 
-        this.users.add(user);
+            this.users.add(user);
+
+        }
 
     }
 
-}
-        public String toString() {
-            String text = "";
-            for (int i = 0; i <= users.size(); i++) {
-                text += users.get(i).toSave() + "\n";
-            }
-            return text;
-        }
-
-        public void save() {
-            try {
-                File file = new File("C:\\mycode\\JavaBasics\\Mostenirea\\OnlineStore\\src\\ro\\myClass\\resources\\user.txt");
-                FileWriter fileWriter = new FileWriter(file);
-                PrintWriter printWriter = new PrintWriter(fileWriter);
-
-                printWriter.print(this);
-
-                printWriter.close();
-
-
-            } catch (Exception e) {
-                e.printStackTrace();
+    public int findbyName(String firstName) {
+        for (int i = 0; i < users.size() ; i++) {
+            if (users.get(i).getFirstName().equals(firstName)) {
+                return i;
             }
         }
-        public boolean findbyEmail(String email){
-        for (User m : users){
-            if(m.getEmail().equals(email)){
+        return -1;
+    }
+
+    public void delete(String firstName) {
+        int pos = findbyName(firstName);
+        if (pos != -1) {
+            users.remove(pos);
+        }
+    }
+
+    public String toString() {
+        String text = "";
+        for (int i = 0; i < users.size() - 1; i++) {
+            text += users.get(i).toSave() + "\n";
+        }
+        return text;
+    }
+
+    public void save() {
+        try {
+            File file = new File("C:\\mycode\\JavaBasics\\Mostenirea\\OnlineStore\\src\\ro\\myClass\\resources\\user.txt");
+            FileWriter fileWriter = new FileWriter(file);
+            PrintWriter printWriter = new PrintWriter(fileWriter);
+            printWriter.print(this);
+            printWriter.flush();
+            printWriter.close();
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    public boolean findbyEmail(String email) {
+
+        for (User m : users) {
+
+            if (m.getEmail().equals(email)) {
+
                 return true;
             }
+
         }
+
         return false;
-        }
+
     }
+
+    public boolean findUserByName(String firstName) {
+     for (User m : users){
+         if(m.getFirstName().equals(firstName))
+             return true;
+     }
+        return false;
+    }
+    public int generateUserID(){
+
+         if(this.users.size()>0){
+
+             return  this.users.get(this.users.size()-1).getId()+1;
+         }
+        return 1;
+    }
+}
 

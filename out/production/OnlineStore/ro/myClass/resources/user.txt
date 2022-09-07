@@ -1,5 +1,6 @@
-customer,123,popescu,alin,popescualin@gmail.com,popescualin@gmail.com2022,213,2,true
-customer,386,darius,schiopu,dariusschiopu@gmail.com,dariusschiopu@gmail.com2022,318,1,true
-customer,932,alex,marcu,marcualex@gmail.com,marcualex@gmail.com2022,1931,2,false
-customer,878,denis,popovici,denispopovici@gmail.com,denispopovici@gmail.com2022,321,2,false
-administrator,32,ionescu,filip,ionescufilip@gmail.com,ionescufilip@gmail.com2022,marketing
+123,alin,popescu,popescualin@gmail.com,popescualin@gmail.com2022,customer,213,2,true
+386,schiopu,darius,dariusschiopu@gmail.com,dariusschiopu@gmail.com2022,customer,318,1,true
+932,marcu,alex,marcualex@gmail.com,marcualex@gmail.com2022,customer,1931,2,false
+878,popovici,denis,denispopovici@gmail.com,denispopovici@gmail.com2022,customer,321,2,false
+32,filip,ionescu,ionescufilip@gmail.com,ionescufilip@gmail.com2022,administrator,marketing
+124,eduard,marinescu,eduardmarinescu@gmail.com,eduardmarinescu@gmail.com2022,customer,234,2,true

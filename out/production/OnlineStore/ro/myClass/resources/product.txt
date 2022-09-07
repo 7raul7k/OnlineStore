@@ -1,0 +1,10 @@
+1,Ultrabook ASUS 15.6'' ExpertBook B1,1898.0,https://2.grgs.ro/images/products/1/9663/2340580/normal/156-expertbook-b1-b1500ceae-fhd-procesor-intel-core-i3-1115g4-6m-cache-up-to-410-ghz-8gb-ddr4-256gb-ssd-gma-uhd-no-os-star-black-66866cc5b0bd97b7ace243c085aec194.jpg,250
+2,Samsung Galaxy S21 FE,2999.0,https://4.grgs.ro/images/products/1/6878/2310906/normal/galaxy-s21-fe-octa-core-128gb-6gb-ram-dual-sim-5g-4-camere-graphite-f4cce93dc2929281701d75cf02856294.jpg,20
+3,SmartWatch Canyon Lollypop,219.0,https://3.grgs.ro/images/products/1/9544/2353960/normal/lollypop-argintiu-curea-silicon-alb-03665b158ee52f47f6262d2dd60ac277.jpg,300
+4,Televizor LED Horizon Diamant Smart TV,978.0,https://5.grgs.ro/images/products/1/2619/2389064/normal/diamant-smart-tv-32hl4330h-b-seria-hl4330h-b-80cm-negru-hd-ready-5a11e94c5efead3b92011de01a06e723.jpg,250
+5,Monitor LED Samsung Gaming Odyssey 24 inch 1 ms 165 hz,870.0,https://5.grgs.ro/images/products/1/4960/2313530/normal/gaming-odyssey-g3-ls24ag320nuxen-24-inch-fhd-va-1-ms-165-hz-freesync-premium-5d26d8728f3ba9c143a784794dcc09a6.jpg,125
+6,Monitor LED DELL Gaming S2721HGF Curbat 27 inch 1 ms 144 hz,989.0,https://4.grgs.ro/images/products/1/4525/2076106/normal/mon-27-tft-dell-s2721hgf-black-c-a358497c3d831e210e702ec8c563f9be.jpg,90
+7,Mouse Gaming Logitech G502 Lightspeed Wireless,372.0,https://5.grgs.ro/images/products/1/7399/1864782/normal/g502-lightspeed-wireless-21132651c41113d84ee709ca16375a55.jpg,75
+8,Casti Gaming HyperX Cloud Alpha,449.0,https://2.grgs.ro/images/products/1/5286/1658412/normal/cloud-alpha-c2ec46dd28164804ce7ba527d1acbce3.jpg,100
+9,Procesor AMD Ryzen 5 5600G 3.9GHz box,837.0,https://4.grgs.ro/images/products/1/9507/2240078/normal/ryzen-5-5600g-39ghz-box-1adb3982e7ef74e009a4724b35725a64.jpg,200
+10,Placa video MSI GeForce RTX 3060 Ti VENTUS 2X OCV1 LHR 8GB GDDR6 256-bit,2773.0,https://4.grgs.ro/images/products/1/2118138/2263070/normal/geforce-rtx-3060-ti-ventus-2x-oc-8gb-gddr6-256-bit-f5e44d0023beaa1ab40316dbb368a410.jpg,134

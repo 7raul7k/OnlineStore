@@ -1,25 +1,30 @@
 package ro.myClass.models;
 
 public class Order {
+    private int id;
     private int customerID;
-    private int ammount;
+    private float ammount;
     private String orderDate;
 
-    public Order(int customerID, int ammount, String orderDate){
-      this.customerID = customerID;
+    public Order(int id,int customerID, float ammount, String orderDate){
+      this.id = id;
+        this.customerID = customerID;
         this.orderDate = orderDate;
         this.ammount = ammount;
     }
     public Order(String text){
         String[] proprietes = text.split(",");
-        this.customerID = Integer.parseInt(proprietes[0]);
-        this.orderDate = proprietes[1];
-        this.ammount = Integer.parseInt(proprietes[2]);
-
+        if(text!="") {
+            this.id = Integer.parseInt(proprietes[0]);
+            this.customerID = Integer.parseInt(proprietes[1]);
+            this.orderDate = proprietes[2];
+            this.ammount = Float.parseFloat(proprietes[3]);
+        }
     }
     public String showOrders(){
         String text = "";
-        text += "Customer ID:" + customerID;
+        text += "ID:" + id;
+        text += "\nCustomer ID:" + customerID;
         text += "\nOrder Date: " + orderDate;
         text += "\nAmmount: " + ammount;
         text += "\n==========================================\n";
@@ -29,6 +34,7 @@ public class Order {
     @Override
     public String toString(){
         String text = "";
+        text += "ID:" + id;
         text += "Customer ID:" + customerID;
         text += "\nOrder Date: " + orderDate;
         text += "\nAmmount: " + ammount;
@@ -42,8 +48,16 @@ public class Order {
     }
 
     public String toSave(){
-        return customerID+","+orderDate+","+ammount;
-    }g
+        return id+","+customerID+","+orderDate+","+ammount;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public int getCustomerID() {
         return customerID;
@@ -53,11 +67,11 @@ public class Order {
         this.customerID = customerID;
     }
 
-    public int getAmmount() {
+    public float getAmmount() {
         return ammount;
     }
 
-    public void setAmmount(int ammount) {
+    public void setAmmount(float ammount) {
         this.ammount = ammount;
     }
 

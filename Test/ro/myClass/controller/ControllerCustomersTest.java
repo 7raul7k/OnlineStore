@@ -9,31 +9,55 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ControllerCustomersTest {
 
-
-@Test
-
-public void test1(){
-    ControllerUser controllerUser = new ControllerUser();
-
-    Customer
-            customer = new Customer(231,"emanuel","olariu","olariuemanuel@gmail.com","olariuemanuel@gmail.com2022",32,1,true);
-    Administrator admin = new Administrator(32,"Silviu","Alexandru","silviualexandru@gmail.com","silviualexandru@gmail.com2022","marketing");
-
-    int size = controllerUser.size();
-
-    controllerUser.add(customer);
-    controllerUser.add(admin);
-
-    assertEquals(size+2,controllerUser.size());
-
-
-    controllerUser.show();
-
-
-
-
-
-
+    @Test
+    public void removeTest() {
+        ControllerUser controllerUser = new ControllerUser();
+        int size = controllerUser.size();
+        controllerUser.delete("schiopu");
+        assertEquals(size-1, controllerUser.size());
 
     }
+
+    @Test
+    public void saveTest() {
+        ControllerUser controllerUser = new ControllerUser();
+        Customer customer = new Customer(231, "Popescu", "Alex", "popescualex@gmail.com", "popescualex@gmail.com2022", 32, 5, true);
+        int size = controllerUser.size();
+        controllerUser.add(customer);
+        controllerUser.save();
+        assertEquals(size + 1, controllerUser.size());
+    }
+
+    @Test
+    public void findbyEmail() {
+        ControllerUser controllerUser = new ControllerUser();
+        Customer customer = new Customer(231, "Popescu", "Alex", "popescualex1@gmail.com", "popescualex@gmail.com2022", 32, 5, true);
+        boolean flag = controllerUser.findbyEmail(customer.getEmail());
+        boolean pos = controllerUser.findbyEmail("marcualex@gmail.com");
+        assertEquals(false, flag);
+        assertEquals(true, pos);
+
+    }
+
+    @Test
+    public void findUserbyNameTest() {
+        ControllerUser controllerUser = new ControllerUser();
+        assertEquals(true,controllerUser.findUserByName("alin"));
+        assertEquals(false,controllerUser.findUserByName("giani"));
+    }
+    @Test
+    public void show(){
+        ControllerUser controllerUser = new ControllerUser();
+        String text = controllerUser.show();
+        assertEquals(text,controllerUser.show());
+    }
+
+    @Test
+    public void findbyNameTest(){
+        ControllerUser controllerUser = new ControllerUser();
+        User user = new User(controllerUser.generateUserID(), "Marian","Petrea","petreamarian@gmail.com","petreamarian@gmail.com2022","customer");
+        assertEquals(controllerUser.findbyName("Marian"),controllerUser.findbyName("Marian"));
+
+    }
+
 }
