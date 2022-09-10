@@ -57,6 +57,7 @@ public class ControllerProduct {
         int pos = findbyName(name);
         if (pos != -1) {
             products.remove(pos);
+            System.out.println("Product was removed");
         }
     }
     public String toString() {
@@ -123,5 +124,24 @@ public class ControllerProduct {
     }
 
 
+    public void updatePrice(String productName, float newPrice) {
+        int pos = findbyName(productName);
+        if (pos != -1){
+            this.products.get(pos).setPrice(newPrice);
+        }
+    }
 
+    public void updateImage(String productName, String image) {
+        int pos = findbyName(productName);
+        if(pos != -1){
+            this.products.get(pos).setImage(image);
+        }
+    }
+
+    public void updateStock(String productName, int stock) {
+        int pos = findbyName(productName);
+        if(pos != -1){
+            this.products.get(pos).setStock(stock);
+        }
+    }
 }

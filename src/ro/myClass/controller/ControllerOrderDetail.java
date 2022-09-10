@@ -2,6 +2,7 @@ package ro.myClass.controller;
 
 import ro.myClass.models.Order;
 import ro.myClass.models.OrderDetail;
+import ro.myClass.models.Product;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -124,4 +125,49 @@ public class ControllerOrderDetail {
         }
          return null;
     }
+    public ArrayList<OrderDetail> returnAllOrderDetailsByOrderId(int orderId){
+        ArrayList<OrderDetail> orderDetail = new ArrayList<>();
+        for(OrderDetail m : orderDetails){
+            if(m.getOrderId() == orderId){
+                orderDetail.add(m);
+            }
+        }
+        return orderDetail;
+    }
+   public String returnDetailsbyOrderID(int id){
+        ControllerProduct controllerProduct = new ControllerProduct();
+        String text = "";
+        float totalPrice = 0;
+        for (OrderDetail m : orderDetails){
+            if(m.getId() == id){
+                Product product = controllerProduct.returnProductbyID(m.getProductId());
+                text += "ID: " + m.getId();
+                text += "\nName of product: " + product.getName();
+                text += "\nPrice: " + product.getPrice();
+                text += "\nQuantity: " + m.getQuantity();
+                text += "\nTotal: " + totalPrice;
+                text += "\n=====================================\n";
+            }
+        }
+       return text;
+   }
+   public int[] mostSoldProduct(){
+        int[] product = new int[1000];
+        for(OrderDetail m : orderDetails){
+            product[m.getProductId()]++;
+        }
+        return product;
+   }
+   public int bestSellerProduct(){
+        int[] products = mostSoldProduct();
+        int productID = 0;int max = 0;
+        for(int i = 0 ; i < products.length;i++){
+            if(products[i]>max){
+                productID = i;
+                max = products[i];
+            }
+        }
+        return productID;
+   }
+
 }

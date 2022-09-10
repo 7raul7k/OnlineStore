@@ -38,10 +38,10 @@ public class ControllerUser {
 
     public String show() {
         String text = "";
-        for (User m : users) {
-            text += m;
-        }
-        return text;
+       for(int i = 0 ;i < users.size();i++){
+           text += users.get(i);
+       }
+       return text;
     }
 
     public int size() {
@@ -49,7 +49,7 @@ public class ControllerUser {
     }
 
     public void add(User user) {
-        boolean pos = this.findbyEmail(user.getEmail());
+        boolean pos = findbyEmail(user.getEmail());
 
         if (pos == false) {
 
@@ -128,6 +128,24 @@ public class ControllerUser {
              return  this.users.get(this.users.size()-1).getId()+1;
          }
         return 1;
+    }
+
+    public User userLogin(String email, String password) {
+        for (User m : users){
+            if(m.getEmail().equals(email) && m.getPassword().equals(password)){
+                return m;
+            }
+        }
+        return null;
+    }
+
+    public boolean verifyEmail(String email) {
+        for (User m : users){
+            if(m.getEmail().equals(email)){
+                return true;
+            }
+        }
+        return false;
     }
 }
 

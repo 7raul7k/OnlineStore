@@ -29,11 +29,11 @@ public class ControllerOrder {
         }
     }
     public String showOrders(){
-        String text = "";
-        for(Order m : orders){
-            text += m;
-        }
-        return text;
+       String text  = "";
+       for(int i = 0 ; i < orders.size();i++){
+           text+= orders.get(i);
+       }
+       return text;
     }
     public int findOrderByID(int id,int orderID){
         for (int i = 0 ; i < orders.size() ;i++){
@@ -90,6 +90,35 @@ public class ControllerOrder {
             }
         }
         return false;
+    }
+    public int[] activeUser(){
+        int[] order = new int[10000];
+      for(Order m : orders){
+          order[m.getCustomerID()]++;
+      }
+      return order;
+    }
+    public int mostActiveUser(){
+        int[] order = activeUser();
+        int idCustomer= 0,max = 0;
+        for (int i = 0;i < order.length;i++){
+            if(order[i]> max){
+                idCustomer = i;
+                max = order[i];
+            }
+
+        }
+        return idCustomer;
+    }
+    public String returnOrderByCustomerID(int customerId){
+        String text = "";
+        for(int i = 0 ; i < orders.size();i++){
+            if(orders.get(i).getCustomerID() == customerId){
+                text += orders.get(i);
+            }
+
+        }
+        return text;
     }
 
 }

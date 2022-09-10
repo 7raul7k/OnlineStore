@@ -35,9 +35,10 @@ public class Order {
     public String toString(){
         String text = "";
         text += "ID:" + id;
-        text += "Customer ID:" + customerID;
+        text += "\nCustomer ID:" + customerID;
         text += "\nOrder Date: " + orderDate;
         text += "\nAmmount: " + ammount;
+        text += "\n========================================\n";
         return text;
     }
 

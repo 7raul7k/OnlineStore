@@ -57,7 +57,23 @@ class ControllerCustomersTest {
         ControllerUser controllerUser = new ControllerUser();
         User user = new User(controllerUser.generateUserID(), "Marian","Petrea","petreamarian@gmail.com","petreamarian@gmail.com2022","customer");
         assertEquals(controllerUser.findbyName("Marian"),controllerUser.findbyName("Marian"));
-
     }
+
+    @Test
+    public void userLoginTest() {
+        ControllerUser controllerUser = new ControllerUser();
+        User user = new User(843, "Serban", "Flavius", "flaviusserban@gmail.com", "flaviusserban@gmail.com2022", "customer");
+        controllerUser.add(user);
+        assertEquals(user, controllerUser.userLogin("flaviusserban@gmail.com", "flaviusserban@gmail.com2022"));
+        assertEquals(null, controllerUser.userLogin("ionutionut@gmail.com", "ionutionut"));
+    }
+
+    @Test
+    public void verifyEmailTest(){
+        ControllerUser controllerUser = new ControllerUser();
+        assertEquals(true,controllerUser.verifyEmail("ionescufilip@gmail.com"));
+        assertEquals(false,controllerUser.verifyEmail("eduardedy@gmail.com"));
+    }
+
 
 }

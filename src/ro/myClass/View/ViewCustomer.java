@@ -19,11 +19,11 @@ public class ViewCustomer {
 
     Scanner scanner;
 
-    public ViewCustomer() {
+    public ViewCustomer(User user) {
         controllerOrder = new ControllerOrder();
         controllerOrderDetail = new ControllerOrderDetail();
         controllerProduct = new ControllerProduct();
-        customer = new Customer(999, "Ionut", "Florian", "ionutflorea@gmail.com", "ionutflorea@gmail.com2022", 1293, 39, true);
+        customer = (Customer) user;
         scanner = new Scanner(System.in);
         order = new Order(controllerOrder.generateOrderID(),customer.getId(),0,"10 october");
         this.play();
@@ -36,6 +36,7 @@ public class ViewCustomer {
         System.out.println("Press 4 to view products you bought");
         System.out.println("Press 5 to empty cart");
         System.out.println("Press 6 to update quantity of product");
+        System.out.println("Press 7 to show your order history");
 
     }
 
@@ -60,6 +61,8 @@ public class ViewCustomer {
                 case 5: emptyProduct();
                 break;
                 case 6: updateQuantityProduct();
+                break;
+                case 7: orderHistory();
                 break;
                 default:
 
@@ -155,5 +158,13 @@ public class ViewCustomer {
             }
 
         }
+        public void orderHistory() {
+            ArrayList<OrderDetail> orderDetails = controllerOrderDetail.returnAllOrderDetailsByOrderId(this.order.getCustomerID());
+            String text = "";
+            for (OrderDetail m : orderDetails) {
+                text += controllerOrderDetail.returnDetailsbyOrderID(m.getId());
+            }
+            System.out.println(text);
 
+        }
 }
